@@ -58,9 +58,8 @@ client.connect(err => {
     })
 
 
-    app.get('/cancelVolunteerEvent/:id', (req, res) => {
-      registerCollection.deleteOne({_id: ObjectID(req.params.id)})
-      console.log(ObjectID(req.params.id))
+    app.delete('/cancelVolunteerEvent', (req, res) => {
+      registerCollection.deleteOne({_id:ObjectID(req.headers.id)})
       .then(result => {
         res.send(result.deletedCount > 0)
       })
