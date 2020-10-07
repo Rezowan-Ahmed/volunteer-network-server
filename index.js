@@ -66,6 +66,14 @@ client.connect(err => {
     })
 
 
+    app.get('/allRegisteredEvent', (req, res) => {
+      registerCollection.find({})
+      .toArray( (err, documents) => {
+        res.send(documents);
+      })
+    })
+
+
 });
 
 
